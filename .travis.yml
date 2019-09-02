@@ -1,0 +1,7 @@
+language: csharp
+solution: PCAxis.PX-Web.sln
+
+services: docker
+os: windows
+before_script:
+  - docker version
