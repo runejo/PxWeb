@@ -1,4 +1,5 @@
-services: docker
+language: shell
 os: windows
+services: docker
 before_script:
   - docker version
