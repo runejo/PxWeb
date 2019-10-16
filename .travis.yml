@@ -22,3 +22,5 @@ before_deploy:
 deploy:
   provider: script
   script: docker push ${DOCKER_USERNAME}/pxweb:latest
+  on:
+    branch: feature/docker
