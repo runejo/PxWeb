@@ -1,8 +1,6 @@
 language: shell
 os: windows
-
-services:
-- docker
+services: docker
 
 env:
   global:
@@ -17,10 +15,13 @@ after_script:
 
 before_deploy:
 - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
-- docker tag pxweb ${DOCKER_USERNAME}/pxweb:latest
+- docker tag pxweb "${DOCKER_USERNAME}/pxweb:latest"
+- docker tag pxweb "${DOCKER_USERNAME}/pxweb:windowsservercore-1803"
 
 deploy:
   provider: script
-  script: docker push ${DOCKER_USERNAME}/pxweb:latest
+  script:
+  - docker push "${DOCKER_USERNAME}/pxweb:latest"
+  - docker push "${DOCKER_USERNAME}/pxweb:windowsservercore-1803"
   on:
     branch: feature/docker
