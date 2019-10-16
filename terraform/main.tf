@@ -4,7 +4,7 @@ provider "azurerm" {
 
 resource "azurerm_resource_group" "k8s" {
   name     = "${var.resource_group_name}"
-  location = "${var.location}"
+  location = "North Europe"
 }
 
 resource "azurerm_kubernetes_cluster" "k8s" {
@@ -12,6 +12,11 @@ resource "azurerm_kubernetes_cluster" "k8s" {
   location            = "${azurerm_resource_group.k8s.location}"
   resource_group_name = "${azurerm_resource_group.k8s.name}"
   dns_prefix          = "${var.dns_prefix}"
+
+  network_profile {
+    network_plugin = "azure"
+    network_policy = "azure"
+  }
 
   linux_profile {
     admin_username = "ubuntu"
@@ -21,12 +26,26 @@ resource "azurerm_kubernetes_cluster" "k8s" {
     }
   }
 
+  windows_profile {
+    admin_username = "Sjefen"
+    admin_password = "@H1y6XU8sRg8bU&M7bZ$"
+  }
+
+  #agent_pool_profile {
+  #  name            = "linuxpool"
+  #  count           = 1
+  #  vm_size         = "Standard_DS1_v2"
+  #  os_type         = "Linux"
+  #  os_disk_size_gb = 30
+  #}
+
   agent_pool_profile {
-    name            = "default"
-    count           = "${var.agent_count}"
+    name            = "windowspool"
+    count           = 1
     vm_size         = "Standard_DS1_v2"
-    os_type         = "Linux"
+    os_type         = "Windows"
     os_disk_size_gb = 30
+    #vnet_subnet_id  = "subnet1"
   }
 
   service_principal {
