@@ -21,4 +21,4 @@ deploy:
   provider: script
   script: docker push "${DOCKER_USERNAME}/pxweb:latest" && docker push "${DOCKER_USERNAME}/pxweb:windowsservercore-1803"
   on:
-    branch: feature/docker
+    branch: master
