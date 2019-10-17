@@ -15,7 +15,7 @@ after_script:
 
 before_deploy:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker tag pxweb "${DOCKER_USERNAME}/pxweb:windowsservercore-1803"
+  - docker tag "${DOCKER_USERNAME}/pxweb:latest" "${DOCKER_USERNAME}/pxweb:windowsservercore-1803"
 
 deploy:
   provider: script
