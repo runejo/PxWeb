@@ -11,14 +11,15 @@ script:
   - docker build --tag "${DOCKER_USERNAME}/pxweb:latest" .
 
 after_script:
-  - docker tag pxweb "${DOCKER_USERNAME}/pxweb:windowsservercore-1803"
   - docker images
 
 before_deploy:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  - docker tag pxweb "${DOCKER_USERNAME}/pxweb:windowsservercore-1803"
 
 deploy:
   provider: script
   script: docker push "${DOCKER_USERNAME}/pxweb:latest" && docker push "${DOCKER_USERNAME}/pxweb:windowsservercore-1803"
   on:
     branch: master
+    all_branches: true
