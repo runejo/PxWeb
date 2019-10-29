@@ -2,9 +2,13 @@ provider "azurerm" {
   version = "~>1.35"
 }
 
+#terraform {
+#    backend "azurerm" {}
+#}
+
 resource "azurerm_resource_group" "k8s" {
   name     = "${var.resource_group_name}"
-  location = "North Europe"
+  location = "${var.location}"
 }
 
 resource "azurerm_kubernetes_cluster" "k8s" {
@@ -27,22 +31,23 @@ resource "azurerm_kubernetes_cluster" "k8s" {
   }
 
   windows_profile {
-    admin_username = "Sjefen"
-    admin_password = "@H1y6XU8sRg8bU&M7bZ$"
+    admin_username = "${var.admin_username}"
+    admin_password = "${var.admin_password}"
   }
 
-  #agent_pool_profile {
-  #  name            = "linuxpool"
-  #  count           = 1
-  #  vm_size         = "Standard_DS1_v2"
-  #  os_type         = "Linux"
-  #  os_disk_size_gb = 30
-  #}
-
   agent_pool_profile {
-    name            = "windowspool"
+    name            = "linuxpool"
     count           = 1
     vm_size         = "Standard_DS1_v2"
+    os_type         = "Linux"
+    os_disk_size_gb = 30
+  }
+
+  agent_pool_profile {
+    name            = "windows"
+    count           = 1
+    vm_size         = "Standard_DS1_v2"
+    type            = "VirtualMachineScaleSets"
     os_type         = "Windows"
     os_disk_size_gb = 30
     #vnet_subnet_id  = "subnet1"
