@@ -1,3 +1,4 @@
+
 name: Docker Image CI
 
 on: [push]
@@ -11,4 +12,4 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag pxweb:latest
+      run: docker build . --file Dockerfile.ltsc2019 --tag pxweb

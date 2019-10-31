@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/runejo/PxWeb.svg?branch=master)](https://travis-ci.org/runejo/PxWeb)
+[![Maintainability](https://api.codeclimate.com/v1/badges/d46673e9ae35d2a6bdd6/maintainability)](https://codeclimate.com/github/runejo/PxWeb/maintainability)
 
 # PxWeb
 This repository currently only contains the source code for PxWeb 2019 v1.
