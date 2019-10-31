@@ -16,8 +16,8 @@ docker run -p 80:80 pxweb
 ```
 ## Test with Azure app-server
 
-(https://github.com/I3S-ESSnet/PxWeb/tree/master/terraform/azurerm/app-service)
+* https://github.com/I3S-ESSnet/PxWeb/tree/master/terraform/azurerm/app-service
 
 ## Test with Azure kubernetes
 
-(https://github.com/I3S-ESSnet/PxWeb/tree/master/terraform/azurerm/kubernetes)
+* https://github.com/I3S-ESSnet/PxWeb/tree/master/terraform/azurerm/kubernetes
