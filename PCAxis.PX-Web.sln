@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29306.81
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "PCAxis.Core", "PCAxis.Core\PCAxis.Core.vbproj", "{630041BC-4531-4547-9820-FE4290A18A54}"
 EndProject
@@ -69,11 +69,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PCAxis.Encryption", "PCAxis
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PCAxis.Serializers.JsonStat2Serializer", "PCAxis.Serializers.JsonStat2\JsonStat2Serializer\JsonStat2Serializer\PCAxis.Serializers.JsonStat2Serializer.csproj", "{C33C6D4D-C95C-441E-862D-E8B55354A096}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{E255536D-7C9F-42A7-9C95-2CBD7E216CFE}"
-	ProjectSection(SolutionItems) = preProject
-		.nuget\packages.config = .nuget\packages.config
-	EndProjectSection
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PX.Web.Interfaces", "PX.Web.Interfaces\PX.Web.Interfaces.csproj", "{01468F9C-F679-49FE-9C9F-B127868D86A6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PCAxis.Sql.DbConfig.Tests", "PCAxis.Sql.DbConfig.Tests\PCAxis.Sql.DbConfig.Tests.csproj", "{BDDF52AD-5607-428F-A22A-2F08534A852B}"
@@ -91,10 +86,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PX.Security", "PX.Security\PX.Security.csproj", "{DCB50C42-C3D0-48F9-9C1F-8D5AF99DDB95}"
 EndProject
 Global
-	GlobalSection(SubversionScc) = preSolution
-		Svn-Managed = False
-		Manager = AnkhSVN - Subversion Support for Visual Studio
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -262,5 +253,9 @@ Global
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {196A0825-4ED3-425E-A91F-9155D72CA094}
+	EndGlobalSection
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = False
+		Manager = AnkhSVN - Subversion Support for Visual Studio
 	EndGlobalSection
 EndGlobal
