@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.1.7.12\build\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.props" Condition="Exists('..\packages\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.1.7.12\build\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -34,10 +33,6 @@
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
     <Use64BitIISExpress />
-    <DockerLaunchAction>LaunchBrowser</DockerLaunchAction>
-    <DockerLaunchUrl>http://{ServiceIPAddress}</DockerLaunchUrl>
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -1248,11 +1243,6 @@
     <Content Include="Resources\Doc\Installation-pxweb.docx" />
     <Content Include="Resources\Doc\pxweb-API.docx" />
     <Content Include="Resources\Doc\Release notes PX-Web 2019 V1.docx" />
-    <None Include="Dockerfile" />
-    <None Include=".dockerignore">
-      <DependentUpon>Dockerfile</DependentUpon>
-    </None>
-    <None Include="packages.config" />
     <None Include="Resources\Styles\jQuery\tablesorter\blue.zip" />
     <Content Include="SavedQueryHandler.ashx" />
     <None Include="set-rights-2003.bat">
@@ -1303,12 +1293,4 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('..\packages\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.1.7.12\build\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.1.7.12\build\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.props'))" />
-    <Error Condition="!Exists('..\packages\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.1.7.12\build\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.1.7.12\build\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.targets'))" />
-  </Target>
-  <Import Project="..\packages\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.1.7.12\build\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.targets" Condition="Exists('..\packages\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.1.7.12\build\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.targets')" />
 </Project>
