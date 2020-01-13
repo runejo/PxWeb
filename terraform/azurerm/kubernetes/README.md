@@ -38,9 +38,9 @@ export TF_VAR_admin_password=<youradmionpassword>
 
 ```Shell
 az extension add --name aks-preview
-az feature register --name WindowsPreview --namespace Microsoft.ContainerService
-az feature register -n MultiAgentpoolPreview --namespace Microsoft.ContainerService
-az provider register -n Microsoft.ContainerService
+az feature  register --name WindowsPreview --namespace Microsoft.ContainerService
+az feature  register --name MultiAgentpoolPreview --namespace Microsoft.ContainerService
+az provider register --name Microsoft.ContainerService
 ```
 
 ## Run Terraform
