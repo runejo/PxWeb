@@ -14,3 +14,10 @@ Create a Docker image and run it for easy testing
 docker build -t pxweb .
 docker run -p 80:80 pxweb
 ```
+## Test with Azure App Service
+
+* [Terraform App Service with Docker](terraform/azurerm/app-service)
+
+## Test with Azure Kubernetes Service (AKS) 
+
+* [Terraform AKS](terraform/azurerm/kubernetes)
