@@ -329,3 +329,9 @@ ASALocalRun/
 # MFractors (Xamarin productivity tool) working folder 
 .mfractor/
 /PXWeb/logs
+
+# Terraform
+**/*.tfstate
+*.tfstate.backup
+*.tfstate.lock.info
+**/.terraform/

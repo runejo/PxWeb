@@ -36,4 +36,4 @@ terraform apply
 ## Stop and destroy 
 ```Shell
 terrafrom destroy
-````
+```
