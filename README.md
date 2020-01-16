@@ -20,4 +20,4 @@ docker run -p 80:80 pxweb
 
 ## Test with Azure Kubernetes Service (AKS) 
 
-* [Terraform AKS](terraform/azurerm/kubernetes)
+* [Terraform AKS](terraform/azurerm/kubernetes) (work in progress)
