@@ -8,16 +8,16 @@ The next step is to add/move all the fixes in this version from our other reposi
 ## Test with Docker
 Create a Docker image and run it for easy testing
 
-> **_NOTE:_**  Images require Docker running on a Windows host
+> **_NOTE:_**  Images require Docker running on a Windows host with hardware virtualization enabled in BIOS settings
 
 ```
 docker build -t pxweb .
 docker run -p 80:80 pxweb
 ```
-## Test with Azure app-server
+## Test with Azure App Service
 
-* https://github.com/I3S-ESSnet/PxWeb/tree/master/terraform/azurerm/app-service
+* [Terraform App Service with Docker](terraform/azurerm/app-service)
 
-## Test with Azure kubernetes
+## Test with Azure Kubernetes Service (AKS) 
 
-* https://github.com/I3S-ESSnet/PxWeb/tree/master/terraform/azurerm/kubernetes
+* [Terraform AKS](terraform/azurerm/kubernetes) (work in progress)
