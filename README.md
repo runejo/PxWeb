@@ -8,7 +8,7 @@ The next step is to add/move all the fixes in this version from our other reposi
 ## Test with Docker
 Create a Docker image and run it for easy testing
 
-> **_NOTE:_**  Images require Docker running on a Windows host
+> **_NOTE:_**  Images require Docker running on a Windows host with hardware virtualization enabled in BIOS settings
 
 ```
 docker build -t pxweb .
