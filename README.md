@@ -17,6 +17,7 @@ docker run -p 80:80 pxweb
 ## Test with Azure App Service
 
 * [Terraform App Service with Docker](terraform/azurerm/app-service)
+* [Terraform App Service with GitHub](terraform/azurerm/app-service-code)
 
 ## Test with Azure Kubernetes Service (AKS) 
 
