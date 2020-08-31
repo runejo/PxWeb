@@ -2,7 +2,7 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/d46673e9ae35d2a6bdd6/maintainability)](https://codeclimate.com/github/runejo/PxWeb/maintainability)
 
 # PxWeb
-This repository currently only contains the source code for PxWeb 2019 v1.
+This repository currently contains the source code for PxWeb 2020 v1.
 The next step is to add/move all the fixes in this version from our other repository to this one as soon as possible and there by making this repository the official PxWeb repository.
 
 ## Test with Docker
