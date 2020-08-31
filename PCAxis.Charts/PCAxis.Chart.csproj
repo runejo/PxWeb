@@ -97,7 +97,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="pxweb.snk" />
-    <None Include="Strong Name Key.pfx" />
+    <None Include="pxweb.snk" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">

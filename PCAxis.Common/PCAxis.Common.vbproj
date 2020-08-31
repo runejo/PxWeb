@@ -184,7 +184,7 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="pxweb.snk" />
-    <None Include="Strong Name Key.pfx" />
+    <None Include="pxweb.snk" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PCAxis.Core\PCAxis.Core.vbproj">
