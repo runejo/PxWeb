@@ -15,7 +15,6 @@ after_script:
 
 before_deploy:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker tag "${DOCKER_USERNAME}/pxweb:latest"
 
 deploy:
   provider: script
