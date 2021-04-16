@@ -19,7 +19,7 @@ If you are looking for a compiled version of the source, ready to install in you
 ## Test with Docker
 Create a Docker image and run it for easy testing
 
-> **_NOTE:_**  Images require [Docker](https://hub.docker.com/?overlay=onboarding) running on a Windows host with hardware virtualization enabled in BIOS settings
+> **_NOTE:_**  Images require [Docker Desktop](https://www.docker.com/products/docker-desktop) running on a Windows host with hardware virtualization enabled in BIOS settings
 
 ```
 docker build -t pxweb .
