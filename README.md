@@ -1,5 +1,6 @@
+[![Docker Image CI](https://github.com/runejo/PxWeb/actions/workflows/dockerimage.yml/badge.svg)](https://github.com/runejo/PxWeb/actions/workflows/dockerimage.yml)
+[![CodeQL](https://github.com/runejo/PxWeb/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/runejo/PxWeb/actions/workflows/codeql-analysis.yml)
 [![Build Status](https://travis-ci.org/runejo/PxWeb.svg?branch=master)](https://travis-ci.org/runejo/PxWeb)
-[![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=runejo/PxWeb)](https://dependabot.com)
 [![Maintainability](https://api.codeclimate.com/v1/badges/d46673e9ae35d2a6bdd6/maintainability)](https://codeclimate.com/github/runejo/PxWeb/maintainability)
 
 # PxWeb
