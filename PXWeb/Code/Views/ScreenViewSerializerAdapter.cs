@@ -13,9 +13,9 @@ namespace PXWeb.Views
     {
         public abstract Output Save();
 
-        public abstract void Render(string format, SavedQuery query, PCAxis.Paxiom.PXModel model, bool safe);
+        public abstract void Render(string format, PCAxis.Query.SavedQuery query, PCAxis.Paxiom.PXModel model, bool safe);
 
-        protected void RenderToScreen(SavedQuery query, PXModel model, string defaultLayout, string page, bool safe) {
+        protected void RenderToScreen(PCAxis.Query.SavedQuery query, PXModel model, string defaultLayout, string page, bool safe) {
             if (query.Sources.Count < 1) throw new Exception("No source specified"); //TODO fix message
 
             var src = query.Sources[0];
@@ -65,7 +65,7 @@ namespace PXWeb.Views
             else
             {
                 string tableId = RouteInstance.RouteExtender.GetTableIdByName(tableName);
-                url = RouteInstance.RouteExtender.GetPresentationRedirectUrl(tableId, layout);
+                url = page == "Selection.aspx" ? RouteInstance.RouteExtender.GetSelectionRedirectUrl(tableId) : RouteInstance.RouteExtender.GetPresentationRedirectUrl(tableId, layout);
             }
 
             //info about loaded saved query in query string
