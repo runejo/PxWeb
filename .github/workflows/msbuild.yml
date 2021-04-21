@@ -1,4 +1,4 @@
-name: .NET 4.x build
+name: MSBuild
 
 on: [push, pull_request]
 
@@ -22,11 +22,9 @@ jobs:
       with:
         fetch-depth: 0
 
-    - name: Setup MSBuild.exe
-      uses: microsoft/setup-msbuild@v1
+    - uses: microsoft/setup-msbuild@v1
 
-    - name: Setup NuGet.exe
-      uses: NuGet/setup-nuget@v1.0.5
+    - uses: NuGet/setup-nuget@v1.0.5
 
     - name: Restore NuGet Packages
       run: nuget restore $env:Solution_Name
@@ -35,5 +33,3 @@ jobs:
       run: msbuild /p:Configuration=$env:Configuration $env:Project_Name /p:DeployOnBuild=true /p:PublishProfile=filesystem.pubxml
       env:
         Configuration: ${{ matrix.configuration }}
-
-
