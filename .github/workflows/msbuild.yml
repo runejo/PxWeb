@@ -32,5 +32,3 @@ jobs:
       run: msbuild /p:Configuration=$env:Configuration $env:Solution_Name
       env:
         Configuration: ${{ matrix.configuration }}
-
-    - uses: tonyhallett/vstest-solution-action@v1.0.0
