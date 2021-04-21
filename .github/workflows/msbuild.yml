@@ -38,7 +38,7 @@ jobs:
       #run: msbuild $env:Solution_Name /t:Restore /p:Configuration=$env:Configuration
       run: msbuild /p:Configuration=Release PXWeb/PXWeb.csproj /p:DeployOnBuild=true /p:PublishProfile=filesystem.pubxml
 
-      env:
-        Configuration: ${{ matrix.configuration }}
+      #env:
+      #  Configuration: ${{ matrix.configuration }}
 
 
