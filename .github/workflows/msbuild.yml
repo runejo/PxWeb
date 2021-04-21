@@ -29,11 +29,15 @@ jobs:
     #  with:
     #    dotnet-version: ${{ matrix.dotnet }}
 
-    # Add  MSBuild to the PATH: https://github.com/microsoft/setup-msbuild
-    - name: Setup MSBuild.exe
-      uses: microsoft/setup-msbuild@v1
+    - name: setup-msbuild
+     uses: microsoft/setup-msbuild@v1
+      
+    - name: Setup NuGet.exe for use with actions
+      uses: NuGet/setup-nuget@v1.0.5
 
-    # Restore the application to populate the obj folder with RuntimeIdentifiers
+    - name: Restore NuGet Packages
+      run: nuget restore
+
     - name: Restore the application
       #run: msbuild $env:Solution_Name /t:Restore /p:Configuration=$env:Configuration
       run: msbuild /p:Configuration=Release PXWeb/PXWeb.csproj /p:DeployOnBuild=true /p:PublishProfile=filesystem.pubxml
