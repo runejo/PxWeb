@@ -6,16 +6,15 @@ jobs:
 
   build:
 
-    #strategy:
-    #  matrix:
-    #    configuration: [Debug, Release]
-    #    dotnet: [ '4.8' ]
-
+    strategy:
+      matrix:
+        configuration: [Debug, Release]
 
     runs-on: windows-2019
 
     env:
-      Solution_Name: PXWeb/PXWeb.csproj                         # Replace with your solution name, i.e. MyWpfApp.sln.
+      Solution_Name: PCAxis.PX-Web.sln
+      Project_Name: PXWeb/PXWeb.csproj
 
     steps:
     - name: Checkout
@@ -23,26 +22,19 @@ jobs:
       with:
         fetch-depth: 0
 
-    ## Install the .NET workload
-    #- name: Install .NET
-    #  uses: actions/setup-dotnet@v1
-    #  with:
-    #    dotnet-version: ${{ matrix.dotnet }}
-
     - name: Setup MSBuild.exe
       uses: microsoft/setup-msbuild@v1
-      
+
     - name: Setup NuGet.exe
       uses: NuGet/setup-nuget@v1.0.5
 
     - name: Restore NuGet Packages
-      run: nuget restore PCAxis.PX-Web.sln
+      run: nuget restore $env:Solution_Name
 
-    - name: Restore the application
-      #run: msbuild $env:Solution_Name /t:Restore /p:Configuration=$env:Configuration
-      run: msbuild /p:Configuration=Release PXWeb/PXWeb.csproj /p:DeployOnBuild=true /p:PublishProfile=filesystem.pubxml
+    - name: Build the application
+      run: msbuild /p:Configuration=$env:Configuration $env:Project_Name /p:DeployOnBuild=true /p:PublishProfile=filesystem.pubxml
 
-      #env:
-      #  Configuration: ${{ matrix.configuration }}
+      env:
+        Configuration: ${{ matrix.configuration }}
 
 
