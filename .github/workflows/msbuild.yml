@@ -29,14 +29,14 @@ jobs:
     #  with:
     #    dotnet-version: ${{ matrix.dotnet }}
 
-    - name: setup-msbuild
+    - name: Setup MSBuild.exe
       uses: microsoft/setup-msbuild@v1
       
-    - name: Setup NuGet.exe for use with actions
+    - name: Setup NuGet.exe
       uses: NuGet/setup-nuget@v1.0.5
 
     - name: Restore NuGet Packages
-      run: nuget restore
+      run: nuget restore PCAxis.PX-Web.sln
 
     - name: Restore the application
       #run: msbuild $env:Solution_Name /t:Restore /p:Configuration=$env:Configuration
