@@ -18,8 +18,7 @@ jobs:
 
     steps:
 
-    - name: Checkout
-      uses: actions/checkout@v2
+    - uses: actions/checkout@v2
       with:
         fetch-depth: 0
 
@@ -34,7 +33,6 @@ jobs:
 
     - name: Build the application
       run: msbuild /p:Configuration=$env:Configuration $env:Project_Name /p:DeployOnBuild=true /p:PublishProfile=filesystem.pubxml
-
       env:
         Configuration: ${{ matrix.configuration }}
 
