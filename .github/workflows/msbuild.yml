@@ -30,6 +30,6 @@ jobs:
       run: nuget restore $env:Solution_Name
 
     - name: Build the application
-      run: msbuild /p:Configuration=$env:Configuration $env:Project_Name /p:DeployOnBuild=true
+      run: msbuild /p:Configuration=$env:Configuration $env:Project_Name /p:DeployOnBuild=false
       env:
         Configuration: ${{ matrix.configuration }}
