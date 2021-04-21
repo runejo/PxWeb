@@ -1,3 +1,4 @@
+[![MSBuild](https://github.com/runejo/PxWeb/actions/workflows/msbuild.yml/badge.svg)](https://github.com/runejo/PxWeb/actions/workflows/msbuild.yml)
 [![Docker Image CI](https://github.com/runejo/PxWeb/actions/workflows/dockerimage.yml/badge.svg)](https://github.com/runejo/PxWeb/actions/workflows/dockerimage.yml)
 [![CodeQL](https://github.com/runejo/PxWeb/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/runejo/PxWeb/actions/workflows/codeql-analysis.yml)
 [![Build Status](https://travis-ci.org/runejo/PxWeb.svg?branch=master)](https://travis-ci.org/runejo/PxWeb)
