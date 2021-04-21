@@ -14,7 +14,7 @@ jobs:
 
     env:
       Solution_Name: PCAxis.PX-Web.sln
-      Project_Name: PXWeb/PXWeb.csproj
+      #Project_Name: PXWeb/PXWeb.csproj
 
     steps:
 
@@ -30,6 +30,6 @@ jobs:
       run: nuget restore $env:Solution_Name
 
     - name: Build the application
-      run: msbuild /p:Configuration=$env:Configuration $env:Project_Name /p:DeployOnBuild=false
+      run: msbuild /p:Configuration=$env:Configuration $env:Solution_Name /p:DeployOnBuild=false
       env:
         Configuration: ${{ matrix.configuration }}
