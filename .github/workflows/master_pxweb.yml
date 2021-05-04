@@ -1,7 +1,4 @@
-# Docs for the Azure Web Apps Deploy action: https://go.microsoft.com/fwlink/?linkid=2134798
-# More GitHub Actions for Azure: https://go.microsoft.com/fwlink/?linkid=2135048
-
-name: Azure App Service - PxWeb(Production), Build and deploy ASP .NET app
+name: Azure App Service
 
 on: push
 
@@ -10,23 +7,18 @@ jobs:
 
     runs-on: windows-2019
 
-
-
-
     steps:
 
-    - uses: actions/checkout@master
+    - uses: actions/checkout@v2
 
-    - uses: microsoft/setup-msbuild@v1.0.2
+    - uses: microsoft/setup-msbuild@v1
 
-    - uses: NuGet/setup-nuget@v1.0.5
+    - uses: NuGet/setup-nuget@v1
 
     - name: Restore NuGet packages
       run: nuget restore
 
-    - name: Publish to folder
-      #run: msbuild /nologo /verbosity:n /t:Build /t:pipelinePreDeployCopyAllFilesToOneFolder /p:_PackageTempDir="\published\"
-      #run: msbuild /p:Configuration=Release PXWeb/PXWeb.csproj /p:DeployOnBuild=true /p:PublishProfile=filesystem.pubxml
+    - name: Build the application
       run: msbuild /nologo /verbosity:n /t:Build
 
     - name: Run Azure webapp deploy action using publish profile credentials
