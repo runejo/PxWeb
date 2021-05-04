@@ -36,5 +36,5 @@ jobs:
         app-name: PxWeb
         slot-name: Production
         publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_3850D38E03784DBD806CCB5195A8FBD6 }}
-        package: \temp\build\
+        package: ./PxWeb/
 
