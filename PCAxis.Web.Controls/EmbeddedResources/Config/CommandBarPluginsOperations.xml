@@ -21,7 +21,11 @@
         <property key="ListSize" value="12" />
       </properties>
     </plugin>
+    <plugin name="splitTimeVariable" type="PCAxis.Web.Controls.SplitTimeVariable, PCAxis.Web.Controls, Version=1.1.0.0" hasUI="false" nameCode="CtrlCommandBarFunctionSplitTimeVar" Image="button_splitt_time.png" ShortcutImage="small_button_Splitt_time_value.gif"  SortOrder="4">
+      <constraints>
+        <constraint property="TimeScale" value="Quartely, Monthly, Weekly"/>
         <constraint property="HasTimeValue" value="true"/>
+      </constraints>
     </plugin>
     <plugin name="changeDecimal" type="PCAxis.Web.Controls.ChangeDecimal, PCAxis.Web.Controls, Version=1.1.0.0" hasUI="true" nameCode="CtrlCommandBarFunctionChangeDecimal" Image="button_change_decimals.png" ShortcutImage="small_button_change_decimals.gif"  SortOrder="5">
     </plugin>
