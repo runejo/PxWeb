@@ -1,12 +1,9 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
-name: Deploy pull_request to PxWebMaster at Azure 
+name: Deploy any selected branch to PxWebMaster at Azure 
 
-on:
-  pull_request:
-    branches:
-      - master 
+on: 
   workflow_dispatch:
 
 jobs:
@@ -36,7 +33,7 @@ jobs:
           cp TheAzureConfigFiles/setting.config to_deploy/.
              
       - name: Changing title
-        run: sed -i 's/PxWeb 2021 v1/PxWeb 2021 from pullrequest by hack4ssb/g' to_deploy/Resources/Languages/pxlang.xml
+        run: sed -i 's/PxWeb 2021 v1/PxWeb 2021 from any selected branch/g' to_deploy/Resources/Languages/pxlang.xml
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2

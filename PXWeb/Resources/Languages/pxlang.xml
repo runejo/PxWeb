@@ -680,6 +680,8 @@
 	 <sentence name="PxWebApplicationTitle" value="PxWeb 2021 v1"/>
 	 <sentence name="PxWebApplicationName" value="PxWeb 2021 v1"/>
    <sentence name="PxWebLogoAlt" value="PxWeb Logotype"/>
+   <sentence name="PxWebExternalSearchText" value="Search"/>
+   <sentence name="PxWebExternalSearchURL" value="https://www.google.com"/>
    <sentence name="PxWebHome" value="Home"/>
    <sentence name="PxWebHomeImageScreenReader" value="Icon representing home" />
    <sentence name="PxWebChangeToThisLanguage" value="English" />
@@ -1042,7 +1044,9 @@
   <sentence name="PxWebAdminSettingsSelectionPreSelectFirstContentAndTimeInfo" value="Determines whether the first value for the statistical variable and time should be preselected" />
   <sentence name="PxWebAdminSettingsSelectionShowNoFootnoteForSelection" value="Text for missing footnotes" />
   <sentence name="PxWebAdminSettingsSelectionShowNoFootnoteForSelectionInfo" value="Determines whether text for missing footnotes should be displayed" />
-  
+  <sentence name="PxWebAdminSettingsSelectionSortVariableOrder" value="Sort variable order" />
+  <sentence name="PxWebAdminSettingsSelectionSortVariableOrderInfo" value="If set to true, the variable order will be sorted so content, time and mandatory variables are displayed first" />
+
   <sentence name="PxWebAdminSettingsNavigationNavigationFlowVisible" value="Show Navigation flow" />
    <sentence name="PxWebAdminSettingsNavigationNavigationFlowVisibleInfo" value="Show Navigation flow below bread crumb. Displays the Select table, select the variable, show table " />
 
@@ -1321,6 +1325,8 @@
    <sentence name="PxWebAdminSettingsMainHeaderForTablesTableName" value="Table name"/> 
    <sentence name="PxWebAdminSettingsMainHeaderForTablesStatisticArea" value="Statistics area"/>
    <sentence name="PxWebAdminSettingsMainHeaderForTablesInfo" value="Type of heading that will be used for table pages"/>
+   <sentence name="PxWebAdminSettingsShowExternalSearchLink" value="Show external search"/>
+   <sentence name="PxWebAdminSettingsShowExternalSearchLinkInfo" value="If link to external search page shall be displayed or not. This is typically the big search on your website. Edit the PxWebExternalSearchURL sentence in the language file to match the URL of your search page."/>
    <sentence name="PxWebAdminSettingsLanguageDefaultLanguage" value="Default language"/>
 	 <sentence name="PxWebAdminSettingsLanguageDefaultLanguageInfo" value="The default language for the PxWeb site"/>
 	 <sentence name="PxWebAdminSettingsLanguageSiteLanguages" value="Language"/>
