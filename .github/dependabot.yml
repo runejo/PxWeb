@@ -5,6 +5,10 @@ updates:
   schedule:
     interval: daily
   open-pull-requests-limit: 50
+  ignore:
+    - dependency-name: "*"
+      update-types: ["version-update:semver-major"]
+
 - package-ecosystem: docker
   directory: "/"
   schedule:
