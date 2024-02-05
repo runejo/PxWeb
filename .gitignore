@@ -335,7 +335,6 @@ ASALocalRun/
 /PXWeb/databases.config
 /PXWeb/setting.config
 /PXWeb/SqlDb.config
-/PXWeb/Web.config
 /**/_INDEX/*
 /PXWeb/Resources/PX/Databases/ssd
 
