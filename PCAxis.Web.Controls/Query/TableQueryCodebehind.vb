@@ -2,16 +2,12 @@
 
 Imports System.Web.UI.WebControls
 Imports System.Web.UI
-Imports System.ComponentModel
 Imports PCAxis.Paxiom
 Imports PCAxis.Web.Core
-Imports PCAxis.Web.Core.Attributes
-Imports PCAxis.Paxiom.Localization
-Imports System.Web.UI.HtmlControls
 Imports PCAxis.Web.Core.Management
-Imports PCAxis.Web.Core.Management.LinkManager
 Imports PCAxis.Query
 Imports System.IO
+Imports System.Web
 
 <ToolboxData("<{0}:TableQuery runat=""server""></{0}:TableQuery>")>
 Public Class TableQueryCodebehind
@@ -158,7 +154,7 @@ Public Class TableQueryCodebehind
         lblUrl.Text = GetLocalizedString(LOC_TABLEQUERY_URL_CAPTION)
         lblUrlV2.Text = GetLocalizedString(LOC_TABLEQUERY_URL_CAPTION)
         lblQuery.Text = GetLocalizedString(LOC_TABLEQUERY_QUERY_CAPTION)
-        
+
         lnkMoreInfo.Text = String.Format("<span class=link-text>{0}</span>", Server.HtmlEncode(GetLocalizedString(LOC_TABLEQUERY_MORE_INFORMATION)))
         btnSaveQuery.Text = GetLocalizedString(LOC_TABLEQUERY_SAVE_QUERY)
         lblTableQueryInformation.Text = GetLocalizedString(LOC_TABLEQUERY_SHOW_INFORMATION)
@@ -264,7 +260,6 @@ Public Class TableQueryCodebehind
 
         sb.Append("tables/")
 
-        Dim builder As IPXModelBuilder = PaxiomManager.PaxiomModelBuilder()
         Dim model As PXModel = PaxiomManager.PaxiomModel
 
         If model Is Nothing Then
@@ -282,12 +277,14 @@ Public Class TableQueryCodebehind
         sb.Append(tableId)
 
         sb.Append("/data")
-
         Dim lang As String = LocalizationManager.CurrentCulture.Name
         lang = Util.GetLanguageForNet3_5(lang)
         sb.Append("?lang=")
         sb.Append(lang)
 
+        If PaxiomManager.SingleContentSelection IsNot Nothing AndAlso PaxiomManager.SingleContentSelection.Count > 0 Then
+            sb.Append($"&valueCodes[{PaxiomManager.SingleContentSelection.First().Key}]={PaxiomManager.SingleContentSelection.First().Value}")
+        End If
 
         For Each var In model.Meta.Variables
             Dim values As String = GetValuesString(var.Values)
@@ -317,7 +314,7 @@ Public Class TableQueryCodebehind
     Private Function GetValuesString(var As Values) As String
         Dim valuesSB As New System.Text.StringBuilder()
         For Each val As Value In var
-            valuesSB.Append(val.Code)
+            valuesSB.Append(HttpUtility.UrlEncode(val.Code))
             valuesSB.Append(",")
         Next
         valuesSB.Remove(valuesSB.Length - 1, 1)
@@ -325,16 +322,15 @@ Public Class TableQueryCodebehind
     End Function
 
     Private Function GetAppPath() As String
-        Dim appPath As String = String.Empty
         Dim context As System.Web.HttpContext = System.Web.HttpContext.Current
+        Dim scheme As String = context.Request.Url.Scheme
+        Dim host As String = context.Request.Url.Host
+        Dim port As Integer = context.Request.Url.Port
+        Dim applicationPath As String = context.Request.ApplicationPath
 
-        appPath = String.Format("{0}://{1}{2}{3}", _
-                                    context.Request.Url.Scheme, _
-                                    context.Request.Url.Host, _
-                                    IIf(context.Request.Url.Port.Equals(80), String.Empty, ":" & context.Request.Url.Port), _
-                                    context.Request.ApplicationPath)
+        Dim portPart As String = If((port = 80 And scheme = "http") Or (port = 443 And scheme = "https"), String.Empty, $":{port}")
 
-        Return appPath
+        Return $"{scheme}://{host}{portPart}{applicationPath}"
     End Function
 
     ''' <summary>

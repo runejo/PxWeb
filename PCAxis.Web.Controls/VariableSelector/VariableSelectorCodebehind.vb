@@ -1,16 +1,9 @@
-﻿Imports System.Collections.Generic
-Imports PCAxis.Web.Core.Management
-Imports PCAxis.Paxiom.Localization
-Imports PCAxis.Paxiom
-Imports PCAxis.Web.Core.Attributes
-Imports PCAxis.Web.Core
-Imports PCAxis.Web.Core.Enums
+﻿Imports System.Web.UI
 Imports System.Web.UI.WebControls
-Imports System.Web.UI
-Imports System.Web.UI.HtmlControls
-Imports PCAxis.Web.Core.StateProvider
-Imports PCAxis.Web.Controls.CommandBar.Plugin
+Imports PCAxis.Paxiom
 Imports PCAxis.Query
+Imports PCAxis.Web.Core
+Imports PCAxis.Web.Core.Management
 
 Public Class VariableSelectorCodebehind
     Inherits PaxiomControlBase(Of VariableSelectorCodebehind, VariableSelector)
@@ -474,6 +467,15 @@ Public Class VariableSelectorCodebehind
             Dim builder As Paxiom.IPXModelBuilder
             Dim query As New PCAxis.Query.TableQuery(PaxiomManager.PaxiomModel, selections)
 
+            Dim contentDictionary As New Dictionary(Of String, String)()
+
+            'Set PaxiomManager.Content if only one content is selected and RemoveSingleContent is true
+            If Settings.Metadata.RemoveSingleContent = True And PaxiomManager.PaxiomModel.Meta.ContentVariable IsNot Nothing And sels.FirstOrDefault(Function(x) x.VariableCode.Equals(PaxiomManager.PaxiomModel.Meta.ContentVariable.Code)).ValueCodes.Count = 1 Then
+                contentDictionary.Add(sels.FirstOrDefault(Function(x) x.VariableCode.Equals(PaxiomManager.PaxiomModel.Meta.ContentVariable.Code)).VariableCode, sels.FirstOrDefault(Function(x) x.VariableCode.Equals(PaxiomManager.PaxiomModel.Meta.ContentVariable.Code)).ValueCodes(0))
+            Else
+                contentDictionary = Nothing
+            End If
+
             builder = Management.PaxiomManager.PaxiomModelBuilder
             If Not builder.BuildForPresentation(selections) Then
                 'Fatal error when building for presentation - Show error message
@@ -491,6 +493,7 @@ Public Class VariableSelectorCodebehind
             PaxiomManager.PaxiomModel = builder.Model
             PaxiomManager.QueryModel = query
             PaxiomManager.OperationsTracker = New OperationsTracker()
+            PaxiomManager.SingleContentSelection = contentDictionary
 
             SignalAction()
 
